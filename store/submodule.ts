@@ -1,8 +1,6 @@
 import { getterTree, mutationTree, actionTree } from 'nuxt-typed-vuex'
-import { postState } from 'types/postStore'
-import getPosts from '~/services/getPosts'
 
-export const state = (): postState => ({
+export const state = () => ({
   posts: [],
   page: 1,
 })
@@ -20,13 +18,6 @@ export const mutations = mutationTree(state, {
 export const actions = actionTree(
   { state, getters, mutations },
   {
-    async getPosts({ state, commit }) {
-      const res = await getPosts({ page: state.page })
-      commit('setPosts', res)
-      return res
-    },
-    // async nuxtServerInit({ dispatch }, { req }) {
-    //   await dispatch('getPosts')
-    // },
+    // action goes here
   }
 )
